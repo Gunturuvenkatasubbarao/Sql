@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Player {
 	private int Player_id;
-	private String name;
+	private String playername;
 	private Date dateOfBirth;
 	private String nationality;
 	private String skills;
@@ -19,11 +19,11 @@ public class Player {
 	}
 
 
-	public Player(int player_id, String name, Date dateOfBirth, String nationality, String skills, int runs,
+	public Player(int player_id, String playername, Date dateOfBirth, String nationality, String skills, int runs,
 			int wickets, int number_of_matches, int team_id) {
 		super();
 		Player_id = player_id;
-		this.name = name;
+		this.playername = playername;
 		this.dateOfBirth = dateOfBirth;
 		this.nationality = nationality;
 		this.skills = skills;
@@ -45,12 +45,12 @@ public class Player {
 
 
 	public String getName() {
-		return name;
+		return playername;
 	}
 
 
 	public void setName(String name) {
-		this.name = name;
+		this.playername = name;
 	}
 
 
@@ -126,7 +126,7 @@ public class Player {
 
 	@Override
 	public String toString() {
-		return "Player [Player_id=" + Player_id + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", nationality="
+		return "Player [Player_id=" + Player_id + ", name=" + playername + ", dateOfBirth=" + dateOfBirth + ", nationality="
 				+ nationality + ", skills=" + skills + ", runs=" + runs + ", wickets=" + wickets
 				+ ", number_of_matches=" + number_of_matches + ", team_id=" + team_id + "]";
 	}

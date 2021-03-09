@@ -37,9 +37,9 @@ public class ProjectMain {
 			System.out.println("Enter the Player Id: "); 
 			int pid=Integer.parseInt(br.readLine());
 			System.out.println("Enter the Player Name: ");
-		    String pname=br.readLine();
+		    String pn=br.readLine();
 			System.out.println("Enter the Date of Birth: ");
-		    Date pdate=Date.valueOf(br.readLine());
+		    Date pdob=Date.valueOf(br.readLine());
 		    System.out.println("Enter the Player Nationality: ");
 		    String pnation=br.readLine();
 		    System.out.println("Enter the Player Skills: ");
@@ -47,38 +47,38 @@ public class ProjectMain {
 		    System.out.println("Enter the Player runs: ");
 		    int pruns=Integer.parseInt(br.readLine());
 		    System.out.println("Enter the Player Wickets: ");
-		    int pwic=Integer.parseInt(br.readLine());
+		    int pwickets=Integer.parseInt(br.readLine());
 		    System.out.println("Enter the Player Number of Matches: ");
 		    int pnum=Integer.parseInt(br.readLine());
 		    System.out.println("Enter Player Team Id: ");
-		    int pteam=Integer.parseInt(br.readLine());
+		    int pteamid=Integer.parseInt(br.readLine());
 		    
-		    Player p=new Player(pid,pname,pdate,pnation,pskills,pruns,pwic,pnum,pteam);
+		    Player p=new Player(pid,pn,pdob,pnation,pskills,pruns,pwickets,pnum,pteamid);
 		    PlayerDAO pd=new PlayerDAO();
 		    pd.insertPlayer(p);
 		}
 		else if(n==2)
 		{
 			System.out.println("Enter the Player Name: "); 
-			String name=br.readLine();
-			PlayerDAO pd=new PlayerDAO();
-		    pd.getAll(name);
+			String pname=br.readLine();
+			PlayerDAO pdao=new PlayerDAO();
+		    pdao.getAll(pname);
 		}
 		else if(n==3)
 		{
 			System.out.println("Enter table to update:");
-			System.out.println("1.Team 2.Player");
-			int u=Integer.parseInt(br.readLine());
-		    if(u==1)
+			System.out.println(" 1.Team\n 2.Player");
+			int m=Integer.parseInt(br.readLine());
+		    if(m==1)
 		    {
 		    	System.out.println("Enter Team ID: ");
 		    	int id=Integer.parseInt(br.readLine());
 		    	System.out.println("Enter new Team Name: ");
 		    	String name=br.readLine();
-				TeamDAO pd=new TeamDAO();
-			    pd.updateTeam(id,name);
+				TeamDAO td=new TeamDAO();
+			    td.updateTeam(id,name);
 		    }
-		    else if(u==2)		
+		    else if(m==2)		
 		    {
 		    	System.out.println("Enter Playet ID: ");
 		    	int id=Integer.parseInt(br.readLine());
@@ -97,22 +97,22 @@ public class ProjectMain {
 		{
 			System.out.println("1. View Players based on Team");
 			System.out.println("2. View Players based on Skills & Team");
-			int v=Integer.parseInt(br.readLine());
-			if(v==1)
+			int i=Integer.parseInt(br.readLine());
+			if(i==1)
 			{
 				System.out.println("Enter Team Name: ");
 				String tname=br.readLine();
 				TeamDAO pd=new TeamDAO();
 			    pd.teamPlayer(tname);
 			}
-			else if(v==2)
+			else if(i==2)
 			{
 				System.out.println("Enter Team Name: ");
 				String tname=br.readLine();
 				System.out.println("Enter Team Skill: ");
 				String tskill=br.readLine();
-				TeamDAO pd=new TeamDAO();
-			    pd.skillPlayer(tname,tskill);
+				TeamDAO td=new TeamDAO();
+			    td.skillPlayer(tname,tskill);
 			}
 
 		}
